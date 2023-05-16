@@ -13,15 +13,16 @@ RUN apt-get update && apt-get install -y \
 COPY Dash_testV1.py /app/
 COPY DonneeAbdNettoyeeAvecDate.csv /app/
 
-COPY requirements.txt /app/
+COPY requirements.txt /app/ 
 COPY Logo_Meaux.svg /app/
 
 WORKDIR /app
-RUN pip install -r requirements.txt
+RUN pip install -r requirements.txt && pip install --no-cache-dir gunicorn
 
 # RUN python -m spacy download fr_core_news_sm
 
-EXPOSE 8050
+# EXPOSE 8080
 
-# HEALTHCHECK CMD curl --fail http://localhost:8050/_stcore/health
-ENTRYPOINT ["python", "-m", "Dash_testV1", "--server.port=8050", "--server.address=0.0.0.0"]
+# # HEALTHCHECK CMD curl --fail http://localhost:8050/_stcore/health
+# ENTRYPOINT ["python", "-m", "Dash_testV1"]
+CMD exec gunicorn --bind :8080 --log-level info --workers 1 --threads 8 --timeout 0 app:server
