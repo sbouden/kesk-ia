@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Safer Road</title>
+    <link rel= "stylesheet" type="text/css" href="{{url_for('static',filename='css/style.css')}}">
+    <link rel= "stylesheet" type="text/css" href="{{url_for('static',filename='css/bootstrap.css')}}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-transparant">
+        <div class="container-fluid">
+          <a class="navbar-brand pl-5 " href="#">
+            <img src="{{ url_for('static',filename='img/logo.png')}}" width="200px" height="55px" alt="">
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar_adjust navbar-collapse justify-content-center" id="navbarSupportedContent">
+            <ul class="navbar-nav text-center d-flex 
+                    mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="index.html">Accueil</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about.html">À propos de
+                  nous</a>
+              </li>
+            </ul>
+          </div>
+          <div class="collapse  main_adjust_envoye navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav  text-center login d-flex ms-auto mb-2
+                    mb-lg-0 mr-5">
+              <li class="nav-item">
+                <a class="nav-link" href="envoyephoto.html">Envoyer un photo</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      {{users}}
+    <div class="container pt-5">
+        <div class="row pt-5">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="accueil_text">
+                            <h1 class="display-5 about_accueil
+                                        fw-bold">Safer Road
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">Images</th>
+                                    <th scope="col">Location</th>
+                                    <th scope="col">Type de error</th>
+                                    <th scope="col">Les Objects</th>
+                                    <th scope="col">Risque</th>
+                                    <th scope="col">Count</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td><img src="{{url_for('static',filename='img/errors/001.jpg')}}" alt="..." class="img-thumbnail"></td>
+                                    <td>Paris</td>
+                                    <td>D00</td>
+                                    <td>Error sur le rue, accident de voiture</td>
+                                    <td>5</td>
+                                    <td>15 Raport</td>                                                              
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td><img src="{{url_for('static',filename='img/errors/003.jpg')}}" alt="..." class="img-thumbnail"></td>
+                                    <td>Meaux</td>
+                                    <td>D40</td>
+                                    <td>L'armbre</td>
+                                    <td>1</td>
+                                    <td>1 Raport</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td><img src="{{url_for('static',filename='img/errors/002.jpg')}}" alt="..." class="img-thumbnail"></td>
+                                    <td>Melun</td>
+                                    <td>D00, DD20</td>
+                                    <td>accident de voiture</td>
+                                    <td>9</td>
+                                    <td>150 Raport</td>
+                                </tr>
+
+                                <style>
+                                    .img-thumbnail{
+                                        width: 200px;
+                                        height: 100px;
+                                    }
+                                </style>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+        </div>
+    </div>
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-4 d-flex align-items-center">
+                    <img src="{{url_for('static',filename='img/logo.png')}}" width="200px" height="55px" alt="">
+                </div>
+
+                <div class="col-xs-4 col-md-3">
+                    <h6>LIENS RAPIDES</h6>
+                    <ul class="footer-links">
+                        <li><a href="/">Accueil</a></li>
+                        <li><a href="/about">A Propose de nous</a></li>
+                        <li><a href="/eup">Envoye un photo</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 col-sm-6 col-xs-12 d-flex align-items-center justify-content-end">
+                    <ul class="social-icons">
+                        <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
+                        <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-sm-6 col-xs-12">
+                    <p class="copyright-text">Copyright &copy; 2023 KESK'IA
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{url_for('static',filename='js/bootstrap.bundle.min.js')}}"></script>
+</body>
+
+</html>

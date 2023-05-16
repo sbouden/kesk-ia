@@ -1,0 +1,40 @@
+# Config dosyası
+# Model eğitimi için kullanılacak hiperparametreler
+
+VERSION: 2
+
+# Datasets
+train_data: "/path/to/training/data"
+val_data: "path/to/validation/data"
+
+# Model hyperparameters
+model:
+  num_classes: 5
+  backbone:
+    name: "resnet50"
+    pretrained: True
+  roi_head:
+    name: "standard_roi_head"
+    num_boxes: 256
+    num_classes: 5
+    fg_iou_thresh: 0.5
+    bg_iou_thresh_hi: 0.5
+    bg_iou_thresh_lo: 0.0
+    bbox_reg_weights: [10.0, 10.0, 5.0, 5.0]
+  input_format: "BGR"
+
+# Training hyperparameters
+train:
+  optimizer:
+    name: "SGD"
+    lr: 0.001
+    momentum: 0.9
+    weight_decay: 0.0001
+  lr_scheduler:
+    name: "WarmupMultiStepLR"
+    milestones: [10000, 20000]
+    gamma: 0.1
+    warmup_factor: 1.0 / 1000
+    warmup_iters: 1000
+  batch_size: 8
+  num_epochs: 50
